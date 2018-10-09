@@ -6,6 +6,7 @@
   users ? top.users.unix {},
   groups ? top.groups.unix {},
   pam ? top.pam {},
+  udev ? top.udev.eudev {},
   ttys ? {
     tty1 = top.tty.agetty {};
     tty2 = top.tty.agetty {};
@@ -26,5 +27,5 @@ top.lib.disjoint-union (d:
   top.lib.disjoint-union (d:
     throw "Passed tty names that were already taken by core system: ${toString d}"
   ) {
-    inherit files init users groups pam;
+    inherit files init users groups pam udev;
   } (pkgs.lib.mapAttrs (n: v: v n) ttys))

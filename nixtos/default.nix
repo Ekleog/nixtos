@@ -18,6 +18,7 @@ let
     operating-system = import ./operating-system { inherit pkgs top; };
     pam = import ./pam { inherit pkgs top; };
     tty = import ./tty { inherit pkgs top; };
+    udev = import ./udev { inherit pkgs top; };
     users = import ./users { inherit pkgs top; };
     version = import ./version { inherit pkgs top; };
     vm-drive = import ./vm-drive { inherit pkgs top; };
